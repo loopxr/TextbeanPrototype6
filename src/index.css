@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 251 82% 4%;
+    --foreground: 210 40% 98%;
+    --card: 251 82% 4%;
+    --card-foreground: 210 40% 98%;
+    --popover: 251 82% 4%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 252 100% 69%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 217 19% 27%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217 19% 27%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217 19% 27%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217 19% 27%;
+    --input: 217 19% 27%;
+    --ring: 224 71.4% 4.1%;
+    --radius: 1.5rem;
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground overflow-hidden;
+    background: linear-gradient(45deg, #5221a1 0%, #7597de 100%);
+  }
+}
+
+.nav-icon {
+  @apply relative flex items-center justify-center h-12 w-12
+  text-gray-400 hover:text-white
+  transition-all duration-300 ease-linear
+  cursor-pointer outline-none;
+}
+
+.nav-icon.active {
+  @apply text-white scale-110;
+}
+
+.nav-notch {
+  @apply absolute -bottom-1.5 left-1/2 w-6 h-1.5
+  bg-primary rounded-t-full
+  transform -translate-x-1/2 scale-x-100 scale-y-100
+  transition-all duration-300 ease-out;
+  clip-path: path('M0,0 L24,0 L24,4 Q12,8 0,4 L0,0');
+}
+
+.server-icon {
+  @apply w-12 h-12 rounded-[1.2rem] mb-3 overflow-hidden
+  flex items-center justify-center
+  bg-white/5 hover:bg-white/10 hover:rounded-2xl
+  transition-all duration-200 cursor-pointer;
+}
+
+.server-icon img {
+  @apply w-8 h-8 object-contain;
+}
+
+.server-icon.active {
+  @apply bg-white/15 rounded-2xl;
+}
+
+.app-container {
+  @apply relative h-screen max-w-[430px] mx-auto
+  bg-black/40 backdrop-blur-xl;
+}
+
+.sidebar {
+  @apply h-full w-[72px] py-4 px-2
+  flex flex-col items-center
+  border-r border-white/10;
+}
+
+.sidebar-divider {
+  @apply w-8 h-[2px] bg-white/10 rounded-full my-2;
+}
+
+.main-content {
+  @apply flex-1 flex flex-col h-full;
+}
+
+.bottom-nav {
+  @apply fixed bottom-2 left-1/2 -translate-x-1/2 
+  bg-black/60 backdrop-blur-xl rounded-2xl px-6 py-1.5
+  flex items-center justify-around gap-1
+  w-[calc(100%-1rem)] max-w-[400px]
+  mx-auto border border-white/10;
+}
+
+.chat-message-received {
+  @apply bg-white/10 rounded-2xl rounded-tl-sm
+  p-3 max-w-[80%] w-fit text-white;
+}
+
+.chat-message-sent {
+  @apply bg-primary/80 rounded-2xl rounded-tr-sm
+  p-3 max-w-[80%] w-fit text-white ml-auto;
+}
