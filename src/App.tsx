@@ -1,13 +1,5 @@
 import { useState } from 'react';
-import {
-  Home,
-  Search,
-  User,
-  Grid2X2,
-  Plus,
-  // MessageCircle,
-  //Send,
-} from 'lucide-react';
+import { Home, Search, User, Grid2X2, Plus } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import WhatsAppDemo from './pages/WhatsAppDemo';
 import TelegramDemo from './pages/TelegramDemo';
@@ -41,17 +33,20 @@ const socialApps = [
   },
 ];
 
-function ServerIcon({
-  image,
-  active,
-  onClick,
-}: {
-  image?: string;
+function ServerIcon({ 
+  image, 
+  active, 
+  onClick 
+}: { 
+  image?: string; 
   active?: boolean;
   onClick?: () => void;
 }) {
   return (
-    <div className={cn('server-icon', active && 'active')} onClick={onClick}>
+    <div 
+      className={cn('server-icon', active && 'active')}
+      onClick={onClick}
+    >
       {image ? (
         <img src={image} alt="app" className="w-8 h-8" />
       ) : (
@@ -61,17 +56,20 @@ function ServerIcon({
   );
 }
 
-function NavIcon({
-  icon,
+function NavIcon({ 
+  icon, 
   active,
-  onClick,
-}: {
-  icon: React.ReactNode;
+  onClick 
+}: { 
+  icon: React.ReactNode; 
   active?: boolean;
   onClick?: () => void;
 }) {
   return (
-    <button className={cn('nav-icon', active && 'active')} onClick={onClick}>
+    <button 
+      className={cn('nav-icon', active && 'active')}
+      onClick={onClick}
+    >
       {icon}
       {active && <div className="nav-notch" />}
     </button>
@@ -83,15 +81,11 @@ export default function App() {
   const [activeApp, setActiveApp] = useState<number | null>(null);
 
   const handleAppClick = (appId: number) => {
-    const app = socialApps.find((a) => a.id === appId);
-    if (app?.component) {
-    } else {
-      setActiveApp(appId);
-    }
+    setActiveApp(appId);
   };
 
   const renderContent = () => {
-    const app = socialApps.find((a) => a.id === activeApp);
+    const app = socialApps.find(a => a.id === activeApp);
     if (app?.component) {
       const Component = app.component;
       return <Component />;
@@ -106,16 +100,12 @@ export default function App() {
   return (
     <div className="app-container">
       <div className="sidebar">
-        <ServerIcon
-          image="https://i.postimg.cc/NFCRtKT2/home.png"
-          active={!activeApp}
-          onClick={() => setActiveApp(null)}
-        />
+        <ServerIcon image="https://i.postimg.cc/NFCRtKT2/home.png" active={!activeApp} onClick={() => setActiveApp(null)} />
         <div className="sidebar-divider" />
         {socialApps.map((app) => (
-          <ServerIcon
-            key={app.id}
-            image={app.image}
+          <ServerIcon 
+            key={app.id} 
+            image={app.image} 
             active={activeApp === app.id}
             onClick={() => handleAppClick(app.id)}
           />
@@ -123,26 +113,28 @@ export default function App() {
         <ServerIcon />
       </div>
 
-      <div className="main-content">{renderContent()}</div>
+      <div className="main-content">
+        {renderContent()}
+      </div>
 
       <nav className="bottom-nav">
-        <NavIcon
-          icon={<Home size={24} />}
+        <NavIcon 
+          icon={<Home size={24} />} 
           active={activeNav === 'home'}
           onClick={() => setActiveNav('home')}
         />
-        <NavIcon
-          icon={<Search size={24} />}
+        <NavIcon 
+          icon={<Search size={24} />} 
           active={activeNav === 'search'}
           onClick={() => setActiveNav('search')}
         />
-        <NavIcon
-          icon={<User size={24} />}
+        <NavIcon 
+          icon={<User size={24} />} 
           active={activeNav === 'user'}
           onClick={() => setActiveNav('user')}
         />
-        <NavIcon
-          icon={<Grid2X2 size={24} />}
+        <NavIcon 
+          icon={<Grid2X2 size={24} />} 
           active={activeNav === 'grid'}
           onClick={() => setActiveNav('grid')}
         />

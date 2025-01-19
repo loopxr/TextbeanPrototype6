@@ -1,11 +1,11 @@
-import { Send } from 'lucide-react';
+import { MessageCircle, Send } from 'lucide-react';
 
 export default function TelegramDemo() {
   return (
     <div className="h-full flex flex-col">
       <div className="flex items-center p-4 border-b border-white/10">
         <div className="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center">
-          <Send className="w-6 h-6 text-white" />
+          <MessageCircle className="w-6 h-6 text-white" />
         </div>
         <div className="ml-3">
           <h2 className="text-white font-semibold">Telegram Demo</h2>
