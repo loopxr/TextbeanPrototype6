@@ -18,25 +18,25 @@ const socialApps = [
   {
     id: 1,
     name: 'WhatsApp',
-    image: '/src/img/whatsapp.png',
+    image: 'https://i.postimg.cc/4yxn32T9/whatsapp.png',
     component: WhatsAppDemo,
   },
   {
     id: 2,
     name: 'Telegram',
-    image: '/src/img/telegram.png',
+    image: 'https://i.postimg.cc/C1NzST90/telegram.png',
     component: TelegramDemo,
   },
   {
     id: 3,
     name: 'Instagram',
-    image: '/src/img/insta.png',
+    image: 'https://i.postimg.cc/bNv2YrzB/insta.png',
     component: InstagramDemo,
   },
   {
     id: 4,
     name: 'Messenger',
-    image: '/src/img/messenger.png',
+    image: 'https://i.postimg.cc/qvPtGG2P/messenger.png',
     component: MessengerDemo,
   },
 ];
@@ -107,7 +107,7 @@ export default function App() {
     <div className="app-container">
       <div className="sidebar">
         <ServerIcon
-          image="/src/img/home.png"
+          image="https://i.postimg.cc/NFCRtKT2/home.png"
           active={!activeApp}
           onClick={() => setActiveApp(null)}
         />
