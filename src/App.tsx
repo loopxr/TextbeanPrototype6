@@ -5,8 +5,8 @@ import {
   User,
   Grid2X2,
   Plus,
-  MessageCircle,
-  Send,
+  // MessageCircle,
+  //Send,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import WhatsAppDemo from './pages/WhatsAppDemo';
@@ -85,7 +85,6 @@ export default function App() {
   const handleAppClick = (appId: number) => {
     const app = socialApps.find((a) => a.id === appId);
     if (app?.component) {
-      window.open(app.component, '_blank');
     } else {
       setActiveApp(appId);
     }
